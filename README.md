@@ -1,6 +1,6 @@
 Construir uma API que realiza CRUD de Produtos (nome, descrição, quantidade, preço, desconto, dataDesconto, categoria, imagem do produto); OK
 
-Validar os dados do req.body usando a biblioteca Joi ou Ifs (caso o dado de req.body esteja inválido responder com um código 400 e uma mensagem especificando o motivo do erro ter acontecido);
+Validar os dados do req.body usando a biblioteca Joi ou Ifs (caso o dado de req.body esteja inválido responder com um código 400 e uma mensagem especificando o motivo do erro ter acontecido); OK
 
 Implemente diversos filtros de acordo com a documentação de Queries;
 

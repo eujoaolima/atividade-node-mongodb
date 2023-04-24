@@ -71,7 +71,13 @@ router.post("/produtos", upload.single("imagemProduto"), async (req, res) => {
             categoria,
             imagem,
         });
-        validarProduto();
+
+        const { error } = validarProduto(produto);
+
+        if (error) {
+            res.status(400).json({ message: "Um erro aconteceu", err });
+            return;
+        }
 
         await produto.save();
         res.status(201).json(produto);
@@ -109,6 +115,15 @@ router.put("/produtos/:id", upload.single("imagem"), async (req, res) => {
             },
             { new: true }
         );
+
+        
+        const { error } = validarProduto(produto);
+
+        if (error) {
+            res.status(400).json({ message: "Um erro aconteceu", err });
+            return;
+        }
+        
         if (!produto) {
             res.status(404).json({ message: "Produto não encontrado." });
         } else {
