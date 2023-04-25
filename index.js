@@ -10,13 +10,15 @@ const app = express();
 app.use(express.static("uploads"));
 
 app.use(express.json());
-mongoose.connect(process.env.MONGODB_ROOT);
+mongoose.connect(process.env.MONGODB_ROOT); 
 
 // Rotas
 
 const rotaProdutos = require("./routes/produto");
+const rotaSwagger = require("./routes/swagger");
 
 app.use(rotaProdutos);
+app.use(rotaSwagger);
 // Escuta
 
 app.listen(3000, () => {

@@ -1,0 +1,286 @@
+// {
+//     "swagger": "2.0",
+//     "info": {
+//         "title": "Minha API",
+//         "version": "1.0.0",
+//         "description": "Uma API RESTful para gerenciar usuários.",
+//         "contact": {
+//             "name": "João da Silva",
+//             "email": "joao.silva@empresa.com.br"
+        
+//         "paths": {
+//             "/produtos": {
+//                 "get": {
+//                     "summary": "Lista todos os produtos",
+//                     "responses": {
+//                         "200": {
+//                             "description": "Retorna uma lista de produtos",
+//                             "schema": {
+//                                 "type": "array",
+//                                 "items": {
+//                                     "type": "object",
+//                                     "properties": {
+//                                         "id": {
+//                                             "type": "string",
+//                                             "example": "2534rt645tg3fhioruy8ben245g6"
+//                                         },
+//                                         "nome": {
+//                                             "type": "string",
+//                                             "example": "Caixa de lápis de cor Prismacolor 150 cores"
+//                                         },
+//                                         "descricao": {
+//                                             "type": "string",
+//                                             "example": "Caixa de lápis de cor Prismacolor 150 cores"
+//                                         },
+//                                         "quantidade": {
+//                                             "type": "number",
+//                                             "example": 1
+//                                         },
+//                                         "preco": {
+//                                             "type": "number",
+//                                             "example": 1200
+//                                         },
+//                                         "desconto": {
+//                                             "type": "number",
+//                                             "example": 0
+//                                         },
+//                                         "dataDesconto": {
+//                                             "type": "date",
+//                                             "example": ""
+//                                         },
+//                                         "categoria": {
+//                                             "type": "string",
+//                                             "example": "Papelaria"
+//                                         },
+//                                         "imagem": {
+//                                             "type": "string",
+//                                             "example": "http://localhost:3000/caixa-prismacolor-150-cores.png"
+//                                         }
+//                                     }
+//                                 }
+//                             }
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     },
+//     "definitions": {
+//         "User": {
+//             "type": "object",
+//             "properties": {
+//                 "id": {
+//                     "type": "string"
+//                 },
+//                 "nome": {
+//                     "type": "string"
+//                 },
+//                 "descricao": {
+//                     "type": "string"
+//                 },
+//                 "quantidade": {
+//                     "type": "number"
+//                 },
+//                 "preco": {
+//                     "type": "number"
+//                 },
+//                 "desconto": {
+//                     "type": "number"
+//                 },
+//                 "dataDesconto": {
+//                     "type": "date"
+//                 },
+//                 "categoria": {
+//                     "type": "string"
+//                 },
+//                 "imagem": {
+//                     "type": "string"
+//                 }
+//             }
+//         }
+//     }
+// }
+
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API REST - Atividade Node 2: API para produtos",
+        "description": "API REST para estudos"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": ["http"],
+    "paths": {
+        "/produtos": {
+            "get": {
+                "summary": "Listar produtos",
+                "description": "Retorna uma lista de produtos",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "2534rt645tg3fhioruy8ben245g6"
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
+                                    },
+                                    "quantidade": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "example": 1200
+                                    },
+                                    "desconto": {
+                                        "type": "number",
+                                        "example": 0
+                                    },
+                                    "dataDesconto": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "categoria": {
+                                        "type": "string",
+                                        "example": "Papelaria"
+                                    },
+                                    "imagem": {
+                                        "type": "string",
+                                        "example": "http://localhost:3000/caixa-prismacolor-150-cores.png"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            "post": {
+                "summary": "Adicionar alunos",
+                "description": "Adiciona um novo aluno ao banco de dados",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "João Pedro"
+                                    },
+                                    "idade": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "M"
+                                    },
+                                    "turmaId": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "/produtos/:id": {
+            "get": {
+                "summary": "Listar um produto em específico",
+                "description": "Retorna uma lista de alunos baseada no ID do aluno",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "João Pedro"
+                                    },
+                                    "idade": {
+                                        "type": "integer",
+                                        "example": 21
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "M"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            "put": {
+                "summary": "Atualizar os dados de um aluno baseado em seu ID",
+                "description": "Atualiza os dados de um aluno baseado em seu ID",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "João -> Lucas"
+                                    },
+                                    "idade": {
+                                        "type": "integer",
+                                        "example": "21 -> 25"
+                                    },
+                                    "sexo": {
+                                        "type": "string",
+                                        "example": "M"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            "delete": {
+                "summary": "Deletar permanentemente os dados de um aluno baseado em seu ID",
+                "description": "Deleta os dados de um aluno baseado em seu ID",
+                "produces": ["application/json"],
+                "responses": {
+                    "204": {
+                        "description": "Tarefa excluída com sucesso"
+                    },
+                    "404": {
+                        "description": "Tarefa não encontrada"
+                    }
+                }
+            }
+        }
+    }
+}
