@@ -1,107 +1,3 @@
-// {
-//     "swagger": "2.0",
-//     "info": {
-//         "title": "Minha API",
-//         "version": "1.0.0",
-//         "description": "Uma API RESTful para gerenciar usuários.",
-//         "contact": {
-//             "name": "João da Silva",
-//             "email": "joao.silva@empresa.com.br"
-        
-//         "paths": {
-//             "/produtos": {
-//                 "get": {
-//                     "summary": "Lista todos os produtos",
-//                     "responses": {
-//                         "200": {
-//                             "description": "Retorna uma lista de produtos",
-//                             "schema": {
-//                                 "type": "array",
-//                                 "items": {
-//                                     "type": "object",
-//                                     "properties": {
-//                                         "id": {
-//                                             "type": "string",
-//                                             "example": "2534rt645tg3fhioruy8ben245g6"
-//                                         },
-//                                         "nome": {
-//                                             "type": "string",
-//                                             "example": "Caixa de lápis de cor Prismacolor 150 cores"
-//                                         },
-//                                         "descricao": {
-//                                             "type": "string",
-//                                             "example": "Caixa de lápis de cor Prismacolor 150 cores"
-//                                         },
-//                                         "quantidade": {
-//                                             "type": "number",
-//                                             "example": 1
-//                                         },
-//                                         "preco": {
-//                                             "type": "number",
-//                                             "example": 1200
-//                                         },
-//                                         "desconto": {
-//                                             "type": "number",
-//                                             "example": 0
-//                                         },
-//                                         "dataDesconto": {
-//                                             "type": "date",
-//                                             "example": ""
-//                                         },
-//                                         "categoria": {
-//                                             "type": "string",
-//                                             "example": "Papelaria"
-//                                         },
-//                                         "imagem": {
-//                                             "type": "string",
-//                                             "example": "http://localhost:3000/caixa-prismacolor-150-cores.png"
-//                                         }
-//                                     }
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-//     },
-//     "definitions": {
-//         "User": {
-//             "type": "object",
-//             "properties": {
-//                 "id": {
-//                     "type": "string"
-//                 },
-//                 "nome": {
-//                     "type": "string"
-//                 },
-//                 "descricao": {
-//                     "type": "string"
-//                 },
-//                 "quantidade": {
-//                     "type": "number"
-//                 },
-//                 "preco": {
-//                     "type": "number"
-//                 },
-//                 "desconto": {
-//                     "type": "number"
-//                 },
-//                 "dataDesconto": {
-//                     "type": "date"
-//                 },
-//                 "categoria": {
-//                     "type": "string"
-//                 },
-//                 "imagem": {
-//                     "type": "string"
-//                 }
-//             }
-//         }
-//     }
-// }
-
 {
     "swagger": "2.0",
     "info": {
@@ -111,13 +7,17 @@
     },
     "host": "localhost:3000",
     "basePath": "/",
-    "schemes": ["http"],
+    "schemes": [
+        "http"
+    ],
     "paths": {
         "/produtos": {
             "get": {
                 "summary": "Listar produtos",
                 "description": "Retorna uma lista de produtos",
-                "produces": ["application/json"],
+                "produces": [
+                    "application/json"
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -168,11 +68,12 @@
                     }
                 }
             },
-
             "post": {
-                "summary": "Adicionar alunos",
-                "description": "Adiciona um novo aluno ao banco de dados",
-                "produces": ["application/json"],
+                "summary": "Adicionar produtos",
+                "description": "Adiciona um novo produto ao banco de dados",
+                "produces": [
+                    "application/json"
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -181,21 +82,41 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "1av238d87432jk978sy234986723459"
+                                    },
                                     "nome": {
                                         "type": "string",
-                                        "example": "João Pedro"
+                                        "example": "Nintendo Switch"
                                     },
-                                    "idade": {
-                                        "type": "integer",
-                                        "example": 1
-                                    },
-                                    "sexo": {
+                                    "descricao": {
                                         "type": "string",
-                                        "example": "M"
+                                        "example": "Videogame portátil"
                                     },
-                                    "turmaId": {
-                                        "type": "integer",
+                                    "quantidade": {
+                                        "type": "number",
                                         "example": 1
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "example": 2250
+                                    },
+                                    "desconto": {
+                                        "type": "number",
+                                        "example": 0
+                                    },
+                                    "dataDesconto": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "categoria": {
+                                        "type": "string",
+                                        "example": "Eletrônicos"
+                                    },
+                                    "imagem": {
+                                        "type": "string",
+                                        "example": "http://localhost:3000/nintendo-switch.png"
                                     }
                                 }
                             }
@@ -204,12 +125,13 @@
                 }
             }
         },
-
         "/produtos/:id": {
             "get": {
-                "summary": "Listar um produto em específico",
-                "description": "Retorna uma lista de alunos baseada no ID do aluno",
-                "produces": ["application/json"],
+                "summary": "Listar um produto em específico por ID",
+                "description": "Retorna uma lista de produtos baseada no ID do produto",
+                "produces": [
+                    "application/json"
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -218,17 +140,41 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "2534rt645tg3fhioruy8ben245g6"
+                                    },
                                     "nome": {
                                         "type": "string",
-                                        "example": "João Pedro"
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
                                     },
-                                    "idade": {
-                                        "type": "integer",
-                                        "example": 21
-                                    },
-                                    "sexo": {
+                                    "descricao": {
                                         "type": "string",
-                                        "example": "M"
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
+                                    },
+                                    "quantidade": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "example": 1200
+                                    },
+                                    "desconto": {
+                                        "type": "number",
+                                        "example": 0
+                                    },
+                                    "dataDesconto": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "categoria": {
+                                        "type": "string",
+                                        "example": "Papelaria"
+                                    },
+                                    "imagem": {
+                                        "type": "string",
+                                        "example": "http://localhost:3000/caixa-prismacolor-150-cores.png"
                                     }
                                 }
                             }
@@ -236,11 +182,12 @@
                     }
                 }
             },
-
             "put": {
-                "summary": "Atualizar os dados de um aluno baseado em seu ID",
-                "description": "Atualiza os dados de um aluno baseado em seu ID",
-                "produces": ["application/json"],
+                "summary": "Atualizar os dados de um produto baseado em seu ID",
+                "description": "Atualiza os dados de um produto baseado em seu ID",
+                "produces": [
+                    "application/json"
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -249,17 +196,41 @@
                             "items": {
                                 "type": "object",
                                 "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "2534rt645tg3fhioruy8ben245g6"
+                                    },
                                     "nome": {
                                         "type": "string",
-                                        "example": "João -> Lucas"
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores -> Caixa de lápis de cor Prismacolor 12 cores"
                                     },
-                                    "idade": {
-                                        "type": "integer",
-                                        "example": "21 -> 25"
-                                    },
-                                    "sexo": {
+                                    "descricao": {
                                         "type": "string",
-                                        "example": "M"
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores -> Caixa de lápis de cor Prismacolor 12 cores"
+                                    },
+                                    "quantidade": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "example": 200
+                                    },
+                                    "desconto": {
+                                        "type": "number",
+                                        "example": 0
+                                    },
+                                    "dataDesconto": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "categoria": {
+                                        "type": "string",
+                                        "example": "Papelaria"
+                                    },
+                                    "imagem": {
+                                        "type": "string",
+                                        "example": "http://localhost:3000/caixa-prismacolor-12-cores.png -> http://localhost:3000/caixa-prismacolor-12-cores.png"
                                     }
                                 }
                             }
@@ -267,17 +238,134 @@
                     }
                 }
             },
-
             "delete": {
-                "summary": "Deletar permanentemente os dados de um aluno baseado em seu ID",
-                "description": "Deleta os dados de um aluno baseado em seu ID",
-                "produces": ["application/json"],
+                "summary": "Deletar permanentemente os dados de um produto baseado em seu ID",
+                "description": "Deleta os dados de um produto baseado em seu ID",
+                "produces": [
+                    "application/json"
+                ],
                 "responses": {
                     "204": {
-                        "description": "Tarefa excluída com sucesso"
+                        "description": "Produto excluído com sucesso"
                     },
                     "404": {
-                        "description": "Tarefa não encontrada"
+                        "description": "Produto não encontrado"
+                    }
+                }
+            }
+        },
+        "/produtos/categoria/:categoria": {
+            "get": {
+                "summary": "Listar um produto em específico por categoria",
+                "description": "Retorna uma lista de produtos baseada em sua categoria",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "2534rt645tg3fhioruy8ben245g6"
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
+                                    },
+                                    "quantidade": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "example": 1200
+                                    },
+                                    "desconto": {
+                                        "type": "number",
+                                        "example": 0
+                                    },
+                                    "dataDesconto": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "categoria": {
+                                        "type": "string",
+                                        "example": "Papelaria"
+                                    },
+                                    "imagem": {
+                                        "type": "string",
+                                        "example": "http://localhost:3000/caixa-prismacolor-150-cores.png"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/produtos/:valorMinimo/:valorMaximo": {
+            "get": {
+                "summary": "Listar um produto em específico por seu preço mínimo e seu preço máximo",
+                "description": "Retorna uma lista de produtos em específico por seu preço mínimo e seu preço máximo",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "string",
+                                        "example": "2534rt645tg3fhioruy8ben245g6"
+                                    },
+                                    "nome": {
+                                        "type": "string",
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
+                                    },
+                                    "descricao": {
+                                        "type": "string",
+                                        "example": "Caixa de lápis de cor Prismacolor 150 cores"
+                                    },
+                                    "quantidade": {
+                                        "type": "number",
+                                        "example": 1
+                                    },
+                                    "preco": {
+                                        "type": "number",
+                                        "example": 1200
+                                    },
+                                    "desconto": {
+                                        "type": "number",
+                                        "example": 0
+                                    },
+                                    "dataDesconto": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "categoria": {
+                                        "type": "string",
+                                        "example": "Papelaria"
+                                    },
+                                    "imagem": {
+                                        "type": "string",
+                                        "example": "http://localhost:3000/caixa-prismacolor-150-cores.png"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
